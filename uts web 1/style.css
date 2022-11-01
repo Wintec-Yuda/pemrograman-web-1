@@ -1,0 +1,107 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: rgb(183,245,93);
+    background: linear-gradient(48deg, rgba(183,245,93,1) 0%, rgba(62,70,172,0.5889706224286589) 0%, rgba(0,0,0,1) 100%);
+}
+
+.registrasi{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container{
+    width: 800px;
+    height: 600px;
+    border-radius: 30px;
+    background-color: #1A1A2E;
+    box-shadow: 0px 0px 30px rgb(5, 5, 5);
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container h2{
+    text-align: center;
+    margin-top: 20px;
+    color: #EEEEEE;
+}
+
+.container p{
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: #EEEEEE;
+}
+
+.input {
+    color: #F5F5F5;
+    padding-left: 20px;
+    margin-top: 20px;
+    width: 80%;
+    height: 45px;
+    background-color: rgba(20, 20, 20, 0.5);
+    border: 0;
+    border-radius: 10px;
+    outline: none;
+    font-size: 16px;
+}
+
+.input::placeholder{
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.input:hover{
+    border: 1px solid #5800FF;
+}
+
+button {
+    margin-top: 30px;
+    width: 80%;
+    height: 40px;
+    color: #F5F5F5;
+    background-color: #270082;
+    border: 0;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+button:hover{
+    background-color: #5800FF;
+    color: #E8E8E8;
+}
+
+button:focus {
+    background-color: #5800FF;
+    color: #E8E8E8;
+    border: 0;
+    outline: 0;
+}
+
+.container p{
+    margin-top: 20px;
+    color: #EEEEEE;
+}
+
+p>a{
+    color: #5800FF;
+    text-decoration: none;
+}
+
+p>a:hover{
+    text-decoration: underline;
+}
+
+p>a:active{
+    color: #185ADB;
+}

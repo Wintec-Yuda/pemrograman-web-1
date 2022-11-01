@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="page">
+            <div class="container">
+                <div class="logo">
+                    <img src="logo2.png" alt="LOGO" />
+                </div>
+                <div class="container-judul">
+                    <div class="judul">KALKULASI RESELLER</div>
+                </div>
+                <div class="container-kalkulasi">
+                    <div class="container-input">
+                        <form class="kalkulasi" id="kalkulasi">
+                            <div class="input">
+                                <div>Total harga beli</div>
+                                <input class="kotak-input" type="number" name="hargaBeli" required />
+                            </div>
+                            <div class="input">
+                                <div>Berat beli</div>
+                                <div>
+                                    <div>
+                                        <input class="kotak-input" type="number" name="beratBeli" required />
+                                    </div>
+                                    <div>
+                                        <input type="radio" value="gram" id="gram" name="satuanBeratBeli" checked />
+                                        <label for="gram">Gram</label>
+                                        <input type="radio" value="kilogram" id="kilogram" name="satuanBeratBeli" />
+                                        <label for="kilogram">KiloGram</label>
+                                        <input type="radio" value="kuintal" id="kuintal" name="satuanBeratBeli" />
+                                        <label for="kuintal">Kuintal</label>
+                                        <input type="radio" value="ton" id="ton" name="satuanBeratBeli" />
+                                        <label for="ton">Ton</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input">
+                                <div>Harga jual</div>
+                                <div>
+                                    <input class="kotak-input" type="number" name="hargaJual" required />
+                                </div>
+                            </div>
+                            <div class="input">
+                                <div>Keuntungan</div>
+                                <div>
+                                    <input class="kotak-input" type="number" name="keuntungan" required />
+                                </div>
+                            </div>
+                            <div class="input">
+                                <div>Satuan berat / biji</div>
+                                <div>
+                                    <input type="radio" value="gram" name="satuanBerat" id="gr" checked />
+                                    <label for="gr">Gram</label>
+                                    <input type="radio" id="kg" value="kilogram" name="satuanBerat" />
+                                    <label for="kg">KiloGram</label>
+                                    <input type="radio" value="kuintal" id="k" name="satuanBerat" />
+                                    <label for="k">Kuintal</label>
+                                    <input type="radio" id="t" value="ton" name="satuanBerat" />
+                                    <label for="t">Ton</label>
+                                </div>
+                                <div class="button">
+                                    <button>Kalkulasi</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="container-hasil"></div>
+                </div>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Looping</title>
+        <style>
+            #table {
+                margin-top: 10px;
+            }
+            .table table tr td {
+                padding: 10px;
+                border: 0.1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="input">
+                <table>
+                    <tr>
+                        <td>Baris</td>
+                        <td><input type="number" name="baris" id="baris" /></td>
+                    </tr>
+                    <tr>
+                        <td>Kolom</td>
+                        <td><input type="number" name="kolom" id="kolom" /></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><button id="button">Buat Table</button></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="table">
+                <table id="table"></table>
+            </div>
+        </div>
+
+        <script>
+            const baris = document.getElementById("baris");
+            const kolom = document.getElementById("kolom");
+            const button = document.getElementById("button");
+            const table = document.getElementById("table");
+
+            button.addEventListener("click", () => {
+                const vbaris = baris.value;
+                const vkolom = kolom.value;
+
+                table.innerHTML = "";
+
+                for (let i = 0; i < vbaris; i++) {
+                    const tr = document.createElement("tr");
+                    table.appendChild(tr);
+                    for (let j = 0; j < vkolom; j++) {
+                        const td = document.createElement("td");
+                        tr.appendChild(td);
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

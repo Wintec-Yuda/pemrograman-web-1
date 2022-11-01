@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .container{
+            padding: 0 10px;
+        }
+        header, footer, div main div{
+            margin-top: 20px;
+            height: 80px;
+            border: 2px solid black;
+            text-align: center;
+            padding-top: 10px;
+        }
+        header, footer{
+            width: 100%;
+        }
+        main{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: row;
+        }
+        .isi-top{
+            width: 33%;
+        }
+        .isi-bottom{
+            width: 50%;
+        }
+
+        @media screen and (max-width: 800px) {
+            main{
+                display: block;
+            }
+            .isi-top, .isi-bottom{
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>Header (lebar 100%)</header>
+        <main class="top">
+            <div class="isi-top">A (lebar 33%)</div>
+            <div class="isi-top">B (lebar 33%)</div>
+            <div class="isi-top">C (lebar 33%)</div>
+        </main>
+        <main class="bottom">
+            <div class="isi-bottom">D (lebar 50%)</div>
+            <div class="isi-bottom">E (lebar 50%)</div>
+        </main>
+        <footer>Footer (lebar 100%)</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+#operasi {
+    background-color: #fff;
+    padding: 10px;
+    margin: 10px;
+    letter-spacing: 3px;
+}
+
+span {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+input {
+    font-size: 30px;
+    height: 45px;
+    padding: 5px;
+    width: 200px;
+    border: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+.benar {
+    background-color: #00ff00;
+    border: 1px solid #00ff00;
+}
+
+.salah {
+    background-color: #ff0000;
+    border: 1px solid #ff0000;
+}
+
+input:focus {
+    background-color: #fff;
+}
+
+.border {
+    border: 1px solid #000;
+}
+
+.button {
+    background-color: #fff;
+    padding: 10px;
+    margin: 10px;
+    letter-spacing: 3px;
+    font-size: 20px;
+}
+
+.sama {
+    font-size: 30px;
+    margin-right: 15px;
+}

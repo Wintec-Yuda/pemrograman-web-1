@@ -1,0 +1,635 @@
+<!doctype html>
+
+<head>
+    <style>
+        /* CSS comes here */
+        *{
+            margin: 0;
+            box-sizing: border-box;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            font-family: arial;
+            background-color: #F3F3F3;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #488B8F;
+            color: white;
+            border: 0px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        #output {
+            background-color: #F3F3F3;
+            padding: 10px;
+            width: 100%;
+            margin-top: 20px;
+            line-height: 30px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .c-hiasan{
+            color: #FFFFFF;
+            cursor: pointer;
+            margin-bottom: 10px;
+            padding: 5px 10px;
+            border-radius: 10px;
+            box-shadow: 1px 5px 10px rgb(188, 188, 188);
+        }
+
+        .hiasan {
+            width: 51%;
+        }
+        
+        .h-hiasan {
+            width: 50%;
+        }
+
+        .h-kiri{
+            margin-left: 10px;
+        }
+
+        .h-kanan{
+            margin-right: 10px;
+        }
+
+        .hijau {
+            background-color: #08b296;
+        }
+
+        .biru {
+            background-color: #5EAAA8;
+        }
+
+        .kanan {
+            float: right;
+            text-align: right;
+        }
+
+        .kiri {
+            float: left;
+            text-align: left;
+        }
+
+        h2 {
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        .kotak {
+            width: 400px;
+            height: 100%;
+            background-color: #EBE6E6;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-shadow: 1px 5px 10px rgb(188, 188, 188);
+            border: 3px solid #bbbbbb;
+        }
+
+        .c-bola{
+            background-color: #bbb;
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            position: absolute;
+            top: 1%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow:1px 1px 5px rgb(188, 188, 188);
+        }
+
+        .bola{
+            right: 4%;
+        }
+
+        .bola:hover{
+            background-color: #888;
+        }
+
+        .history{
+            left: 4%;
+        }
+
+        .history:hover{
+            background-color: #888;
+        }
+
+        .c-set {
+            width: 50%;
+            margin: 0 auto;
+            background-color: #5EAAA8;
+            border-radius: 15px;
+            position: relative;
+            box-shadow: 1px 5px 10px rgb(188, 188, 188);
+        }
+        
+        .setting{
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+            height: 300px;
+        }
+
+        .h-history{
+            height: 500px;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            background-color: #193498;
+        }
+
+        .setting h3, #history h3{
+            margin-top: 10px;
+            text-align: center;
+            color: #F3F3F3;
+        }
+
+        #c-history{
+            overflow: scroll;
+            overflow-x: hidden;
+            height: 400px;
+            background-color: #EAF6F6;
+            margin-top: 10px;
+            padding: 10px;
+        }
+
+        .c-close{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 100%;
+            background-color: rgba(0, 0, 0, 0.0);
+            cursor: pointer;
+            bottom: 1%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close{
+            right: 1%;
+        }
+
+        .h-close{
+            right: 2.8%;
+        }
+
+        .save{
+            left: 1%;
+        }
+
+        .close:hover, .reset:hover{
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .save:hover, .h-close:hover{
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .reset{
+            left: 1%;
+        }
+
+        .reset:hover{
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .input {
+            color: #F5F5F5;
+            padding-left: 20px;
+            margin-top: 20px;
+            width: 100%;
+            height: 45px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border: 0;
+            border-radius: 10px;
+            outline: none;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .input::placeholder{
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 1px;
+        }
+
+        .input:hover{
+            border: 1px solid #2FA4FF;
+        }
+
+        .hide{
+            display: none;
+        }
+
+    </style>
+    <title>Dialog Drama</title>
+    <script src='responsivevoice.js'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <script>
+        navigator.mediaDevices.getUserMedia({ audio: true })
+            .then(function (stream) {
+                console.log('You let me use your mic!')
+            })
+            .catch(function (err) {
+                console.log('No mic for you!')
+            });
+    </script>
+    <h2>DIALOG DRAMA</h2>
+    <div class="container">
+        <div class="kotak" id="dilan">
+            <p>Klik tombol untuk Mulai Berbicara..</p>
+            <div id="soal"></div>
+            <p><button id="buttonp1" type="button" onclick="runSpeechRecognition(false)"></button> &nbsp; <span
+                    id="actionDilan"></span></p>
+        </div>
+        <div class="kotak" id="milea">
+            <p>Klik tombol untuk Mulai Berbicara..</p>
+            <div id="soal"></div>
+            <p><button id="buttonp2" type="button" onclick="runSpeechRecognition(true)"></button> &nbsp; <span
+                    id="actionMilea"></span></p>
+        </div>
+    </div>
+
+    <div id="output"></div>
+
+    <div class="c-bola bola">
+        <i class="fa fa-gear" style="font-size:24px"></i>
+    </div>
+    
+    <div class="c-bola history">
+        <i class="fa fa-history" style="font-size:24px"></i>
+    </div>
+
+    <div class="c-set setting hide">
+        <div>
+            <h3>User 1</h3>
+            <input type="text" class="input" id="nama1" placeholder="Nama" autocomplete="off"/>
+        </div>
+        <div>
+            <h3>User 2</h3>
+            <input type="text" class="input" id="nama2" placeholder="Nama" autocomplete="off"/>
+        </div>
+        <div class="c-close close">
+            <i class="fa fa-close" style="font-size:48px;color:red"></i>
+        </div>
+        <div class="c-close reset">
+            <i class="fa fa-refresh" style="font-size:40px;color:#5800FF"></i>
+        </div>
+    </div>
+
+    <div class="c-set h-history hide">
+        <div id="history">
+            <h3>History</h3>
+        </div>
+        <div id="c-history"></div>
+        <div class="h-close c-close">
+            <i class="fa fa-close" style="font-size:48px;color:red"></i>
+        </div>
+        <div class="save c-close">
+            <i class="fa fa-save" style="font-size:34px;color:#F5F5F5"></i>
+        </div>
+    </div>
+
+    <script>
+        // local storage
+        const resetFromLocalStorage = () => {
+            localStorage.removeItem('data');
+        };
+
+        const getFromLocalStorage = () => {
+            if (localStorage.getItem('data') === null) {
+                return [];
+            } else {
+                return JSON.parse(localStorage.getItem('data'));
+            }
+        };
+
+        const addToLocalStorage = (data) => {
+            resetFromLocalStorage();
+            localStorage.setItem('data', JSON.stringify(data));
+        };
+
+        /* JS comes here */
+        var a = 1;
+        json = getFromLocalStorage();
+
+        // get action element reference
+        const actionDilan = document.getElementById("actionDilan");
+        const actionMilea = document.getElementById("actionMilea");
+        // new speech recognition object
+        const dilan = document.getElementById('dilan')
+        const milea = document.getElementById('milea')
+        // get output div reference
+        var output = document.getElementById("output");
+
+        let p1 = 'Milea';
+        let p2 = 'Dilan';
+
+        let countJson = 1;
+
+        if (json['count'] != null) {
+            countJson = json['count'];
+            p1 = json['nama'][0];
+            p2 = json['nama'][1];
+        }
+
+        let data = [];
+        let posisiData = [];
+
+        let countData = 1;
+
+        const buttonp1 = document.getElementById('buttonp1');
+        const buttonp2 = document.getElementById('buttonp2');
+
+        buttonp1.innerHTML = `${p2} Mulai Percakapan`;
+        buttonp2.innerHTML = `${p1} Mulai Percakapan`;
+
+        const bola = document.querySelector('.bola')
+        const setting = document.querySelector('.setting')
+        const close = document.querySelector('.close')
+        const reset = document.querySelector('.reset')
+        const nama1 = document.querySelector('#nama1')
+        const nama2 = document.querySelector('#nama2')
+        
+        const history = document.querySelector('.history')
+        const hclose = document.querySelector('.h-close')
+        const hhistory = document.querySelector('.h-history')
+        const chistory = document.querySelector('#c-history')
+        const save = document.querySelector('.save')
+
+        let dataJson = {
+            'user 1': [],
+            'user 2': [],
+            'count': 0,
+            'nama': []
+        }
+
+        for (let i = 0; i < json['count']; i++) {
+            for (let j = 0; j < json['user 1'].length ; j++) {
+                if (json['user 1'][j][0] == countData){
+                    data.push(json['user 1'][j][2]);
+                    posisiData.push(json['user 1'][j][1]);
+                }
+            }
+
+            for (let j = 0; j < json['user 2'].length ; j++) {
+                if (json['user 2'][j][0] == countData){
+                    data.push(json['user 2'][j][2]);
+                    posisiData.push(json['user 2'][j][1]);
+                }
+            }
+
+            countData++;
+        }
+
+        for (let i = 0; i < data.length; i++) {
+            const divL = document.createElement('div');
+
+            if (posisiData[i] == 'kiri') {
+                    divL.innerHTML = data[i];
+                    divL.classList.add("biru");
+                    divL.classList.add("kiri");
+                    divL.classList.add("hiasan");
+                    divL.classList.add("c-hiasan");
+            } else {
+                    divL.innerHTML = data[i];
+                    divL.classList.add("hijau");
+                    divL.classList.add("kanan");
+                    divL.classList.add("hiasan");
+                    divL.classList.add("c-hiasan");
+            }
+
+            if (output.childNodes.length >= 11){
+                    output.removeChild(output.childNodes[0]);
+                }
+            output.appendChild(divL);
+        }
+
+        save.addEventListener('click', function(){
+            let dataFile = {
+                'user 1': [],
+                'user 2': []
+            }
+
+            let count = 1;
+            
+            for (let i = 0; i < data.length; i++) {
+                if (posisiData[i] == 'kiri') {
+                    dataFile['user 1'].push([count, data[i]])
+                } else {
+                    dataFile['user 2'].push([count, data[i]])
+                }
+                count++;
+            }
+
+            let json = JSON.stringify(dataFile)
+
+            let blob = new Blob([json], {type: "application/json"})
+            let url = URL.createObjectURL(blob)
+            let a = document.createElement('a')
+            a.href = url
+            a.download = 'data.json'
+            a.click()
+        })
+
+        history.addEventListener('click', function () {
+            hhistory.classList.remove('hide')
+            output.classList.add('hide')
+            actionDilan.classList.add('hide')
+            actionMilea.classList.add('hide')
+            
+            buttonp1.disabled = true;
+            buttonp2.disabled = true;
+            bola.classList.add('hide')
+
+            chistory.innerHTML = ''
+
+            for (let i = 0; i < data.length; i++) {
+            if (posisiData[i] == 'kiri') {
+                chistory.innerHTML += `<div class="biru kiri h-hiasan c-hiasan h-kiri">${data[i]}</div>`
+            } else {
+                chistory.innerHTML += `<div class="hijau kanan h-hiasan c-hiasan h-kanan">${data[i]}</div>`
+            }
+        }
+        })
+
+        hclose.addEventListener('click', () => {
+            hhistory.classList.add('hide')
+            output.classList.remove('hide')
+            actionDilan.classList.remove('hide')
+            actionMilea.classList.remove('hide')
+            buttonp1.disabled = false;
+            buttonp2.disabled = false;
+            bola.classList.remove('hide')
+        })
+
+        bola.addEventListener('click', function () {
+            setting.classList.remove('hide')
+            output.classList.add('hide')
+            actionDilan.classList.add('hide')
+            actionMilea.classList.add('hide')
+            buttonp1.disabled = true;
+            buttonp2.disabled = true;
+            history.classList.add('hide')
+        })
+
+        close.addEventListener('click', function () {
+            setting.classList.add('hide')
+            output.classList.remove('hide')
+            nama1.value = ''
+            nama2.value = ''
+            actionDilan.classList.remove('hide')
+            actionMilea.classList.remove('hide')
+            actionDilan.innerHTML = '';
+            actionMilea.innerHTML = '';
+            buttonp1.disabled = false;
+            buttonp2.disabled = false;
+            history.classList.remove('hide')
+            json['nama'][0] = p1;
+            json['nama'][1] = p2;
+        })
+
+        nama1.addEventListener('keyup', function (e) {
+            p2 = e.target.value
+            buttonp1.innerHTML = `${p2} Mulai Percakapan`;
+        })
+
+        nama2.addEventListener('keyup', function (e) {
+            p1 = e.target.value
+            buttonp2.innerHTML = `${p1} Mulai Percakapan`;
+        })
+
+        reset.addEventListener('click', function () {
+            while (output.firstChild) {
+                output.removeChild(output.firstChild);
+            }
+            setting.classList.add('hide')
+            actionDilan.innerHTML = '';
+            actionMilea.innerHTML = '';
+            actionDilan.classList.remove('hide')
+            actionMilea.classList.remove('hide')
+            output.classList.remove('hide')
+            nama1.value = ''
+            nama2.value = ''
+            buttonp1.disabled = false;
+            buttonp2.disabled = false;
+            history.classList.remove('hide')
+            
+            data = [];
+
+            dataJson['count'] = 0;
+            dataJson['user 1'] = [];
+            dataJson['user 2'] = [];
+            dataJson['nama'] = [p1, p2];
+
+            resetFromLocalStorage()
+        })
+
+        function runSpeechRecognition(cek) {
+            var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+            var recognition = new SpeechRecognition();
+
+            // This runs when the speech recognition service starts
+            if (cek) {
+                recognition.onstart = function () {
+                    actionMilea.innerHTML = `<small>${p1} Silakan berbicara...</small>`;
+                    cek = false;
+                };
+            } else {
+                recognition.onstart = function () {
+                    actionDilan.innerHTML = `<small>${p2} Silakan berbicara...</small>`;
+                    cek = true;
+                };
+            }
+
+            if (cek) {
+                recognition.onspeechend = function () {
+                    actionMilea.innerHTML = `<small>${p1} Selesai...</small>`;
+                    cek = false;
+                    recognition.stop();
+                };
+            } else {
+                recognition.onspeechend = function () {
+                    actionDilan.innerHTML = `<small>${p2} Selesai...</small>`;
+                    cek = true;
+                    recognition.stop();
+                };
+            }
+
+
+            // This runs when the speech recognition service returns result
+            recognition.onresult = function (event) {
+                var transcript = event.results[0][0].transcript;
+
+                const div = document.createElement('div');
+
+                if (cek) {
+                    div.innerHTML = transcript;
+                    posisiData.push("kiri");
+                    div.classList.add("biru");
+                    div.classList.add("kiri");
+                    div.classList.add("hiasan");
+                    div.classList.add("c-hiasan");
+                    dataJson['user 1'].push([countJson, 'kiri', transcript]);
+                } else {
+                    div.innerHTML = transcript;
+                    posisiData.push("kanan");
+                    div.classList.add("hijau");
+                    div.classList.add("kanan");
+                    div.classList.add("hiasan");
+                    div.classList.add("c-hiasan");
+                    dataJson['user 2'].push([countJson, 'kanan', transcript]);
+                }
+                
+                data.push(transcript);
+
+                if (output.childNodes.length >= 11){
+                    output.removeChild(output.childNodes[0]);
+                }
+                output.appendChild(div);
+
+                dataJson['count'] = countJson;
+                dataJson['nama'] = [p1, p2];
+                countJson++;
+                addToLocalStorage(dataJson);
+            };
+
+
+            // start recognition
+            recognition.lang = 'id-ID';
+            recognition.start();
+        }
+
+    </script>
+
+</body>
+
+</html>

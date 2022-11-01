@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>String Manipulation</title>
+        <style>
+            body {
+                font-family: sans-serif;
+                background-color: aliceblue;
+            }
+            form {
+                display: block;
+                margin: 100px auto;
+                padding: 10px 50px;
+                border: 1px solid #ccc;
+                width: 400px;
+                background-color: #eee;
+                border-radius: 10px;
+                box-shadow: 0px 0px 10px #ccc;
+            }
+            div {
+                display: block;
+                margin-bottom: 10px;
+            }
+            input[type="text"] {
+                width: 100%;
+            }
+            input[type="submit"] {
+                width: 100%;
+                margin-top: 10px;
+                background-color: white;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+                font-size: 16px;
+                padding: 5px;
+            }
+            input[type="submit"]:hover {
+                background-color: #ccc;
+            }
+            .salah {
+                color: red;
+            }
+            .benar {
+                color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <form>
+            <div>
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" required />
+            </div>
+            <div id="boxPassword">
+                <label for="password">Password</label>
+                <input type="text" name="password" id="password" required />
+            </div>
+            <div>
+                <label for="passwordcek">Password Check</label>
+                <textarea name="passwordcek" id="passwordcek" cols="52" rows="10" readonly></textarea>
+            </div>
+            <div>
+                <input type="submit" value="Registrasi" />
+            </div>
+        </form>
+
+        <script>
+            const validasi = ["2 digit pertama (dari sebelah kiri) wajib berupa angka.", "Digit ke 3 wajib huruf besar.", "Panjang password minimal 6 digit/karakter."];
+
+            const password = document.getElementById("password");
+            const passwordcek = document.getElementById("passwordcek");
+
+            password.addEventListener("keyup", () => {
+                passwordcek.value = "";
+                passwordcek.classList.remove("salah");
+                passwordcek.classList.remove("benar");
+                const passwordValue = password.value;
+
+                const cekdigit1 = passwordValue.substring(0, 1);
+                const cekdigit2 = passwordValue.substring(1, 2);
+                const digit3 = passwordValue.substring(2, 3);
+                const lenPassword = passwordValue.length;
+
+                if (cekdigit1.match(/[0-9]/g) && cekdigit2.match(/[0-9]/g) && digit3.match(/[A-Z]/g) && lenPassword >= 6) {
+                    passwordcek.value = "Password Benar";
+                    passwordcek.classList.add("benar");
+                } else {
+                    let kalimat = "";
+                    if (cekdigit1.match(/[0-9]/g) === null || cekdigit2.match(/[0-9]/g) === null) {
+                        kalimat += validasi[0] + "\n";
+                        passwordcek.classList.add("salah");
+                    }
+                    if (digit3.match(/[A-Z]/g) === null) {
+                        kalimat += validasi[1] + "\n";
+                        passwordcek.classList.add("salah");
+                    }
+                    if (lenPassword < 6) {
+                        kalimat += validasi[2] + "\n";
+                        passwordcek.classList.add("salah");
+                    }
+                    passwordcek.value = kalimat;
+                }
+            });
+        </script>
+    </body>
+</html>

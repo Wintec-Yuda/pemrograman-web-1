@@ -1,0 +1,126 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.page{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    background-color: F5F5F5;
+}
+
+.container{
+    width: 1300px;
+    height: 650px;
+    min-height: 100%;
+}
+
+img{
+    width: 170px;
+    height: 82px;
+}
+
+.logo{
+    height: 50px;
+}
+
+.container-judul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+}
+
+.judul{
+    font-size: 35px;
+    font-weight: bold;
+    color: #0EB29A;
+}
+
+.container-kalkulasi{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.container-input{
+    width: 600px;
+    height: 500px;
+    background-color: #ebebeb;
+    border-radius: 10px;
+    box-shadow: 5px 10px 15px #a2a2a26a;
+
+}
+
+.container-hasil{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 600px;
+    height: 500px;
+    background-color: #ebebeb;
+    font-size: 30px;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 5px 10px 15px #a2a2a26a;
+}
+
+.hasil{
+    margin-top: 100px;
+}
+
+.pHasil{
+    color: #283739;
+}
+
+.kalkulasi{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input{
+    width: 80%;
+    height: 78px;
+    margin-top: 15px;
+    padding: 5px;
+    color: #283739;
+}
+
+.kotak-input{
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    height: 40px;
+    width: 300px;
+    font-size: 20px;
+    padding: 5px;
+    background-color: #ffffff;
+    color: #000000;
+    box-shadow: 5px 10px 18px #d5d5d56a;
+}
+
+.button{
+    float: right;
+}
+
+button{
+    background-color: #0EB29A;
+    padding: 10px;
+    outline: none;
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+}
